@@ -1,8 +1,10 @@
 package es.prueba.app.mainescritorio.widget;
 
+import java.io.Serializable;
+
 import javax.swing.JPanel;
 
-public abstract class Widget {
+public abstract class Widget implements Serializable{
 
 	private String nombre;
 	private boolean estado;
@@ -13,24 +15,34 @@ public abstract class Widget {
 	private int posicionX = 25;
 	private int posicionY = 25;
 	
-	public Widget(String nombre, boolean estado, JPanel vista) {
+	public Widget(String nombre, boolean estado, int altura, int anchura, int posicionX, int posicionY) {
 		this.nombre = nombre;
 		this.estado = estado;
-		this.vista = vista;
+		this.posicionX = posicionX;
+		this.posicionY = posicionY;
+		this.altura = altura;
+		this.anchura = anchura;
+	}
+	
+	public Widget(String nombre, int altura, int anchura, int posicionX, int posicionY) {
+		this.nombre = nombre;
+		this.estado = false;
+		this.posicionX = posicionX;
+		this.posicionY = posicionY;
+		this.altura = altura;
+		this.anchura = anchura;
 	}
 	
 	public Widget(String nombre, boolean estado) {
 		this.nombre = nombre;
 		this.estado = estado;
-		this.vista = null;
 	}
 	
 	public Widget(String nombre) {
 		this.nombre = nombre;
 		this.estado = false;
-		this.vista = null;
 	}
-
+	
 	public String getNombre() {
 		return nombre;
 	}
@@ -89,6 +101,6 @@ public abstract class Widget {
 
 	@Override
 	public String toString() {
-		return "#" + nombre + "#" + estado + "#" + altura + "#" + anchura + "#" + posicionX + "#" + posicionY;
+		return "#" + nombre + "#" + altura + "#" + anchura + "#" + posicionX + "#" + posicionY;
 	}
 }
