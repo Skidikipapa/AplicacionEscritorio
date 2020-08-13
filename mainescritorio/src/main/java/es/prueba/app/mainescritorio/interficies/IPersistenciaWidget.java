@@ -1,4 +1,4 @@
-package es.prueba.app.mainescritorio.persistencia;
+package es.prueba.app.mainescritorio.interficies;
 
 import java.util.List;
 

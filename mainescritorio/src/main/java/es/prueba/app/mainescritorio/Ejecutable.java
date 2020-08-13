@@ -1,10 +1,6 @@
 package es.prueba.app.mainescritorio;
 
-/**
- * Hello world!
- *
- */
-public class App 
+public class Ejecutable 
 {
     public static void main( String[] args )
     {
