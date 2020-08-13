@@ -8,24 +8,29 @@ public abstract class Widget {
 
 	private String nombre;
 	private boolean estado;
-	private ISujeto sujeto;
-	private int altura;
-	private int anchura;
-	private int posicionX;
-	private int posicionY;
 	private JPanel vista;
 	
-	public Widget(String nombre, boolean estado, ISujeto sujeto, JPanel vista) {
+	private int altura = 0;
+	private int anchura = 0;
+	private int posicionX = 0;
+	private int posicionY = 0;
+	
+	public Widget(String nombre, boolean estado, JPanel vista) {
 		this.nombre = nombre;
 		this.estado = estado;
-		this.sujeto = sujeto;
 		this.vista = vista;
 	}
-
-	public Widget(String nombre, boolean estado, ISujeto sujeto) {
+	
+	public Widget(String nombre, boolean estado) {
 		this.nombre = nombre;
 		this.estado = estado;
-		this.sujeto = sujeto;
+		this.vista = null;
+	}
+	
+	public Widget(String nombre) {
+		this.nombre = nombre;
+		this.estado = false;
+		this.vista = null;
 	}
 
 	public String getNombre() {
@@ -44,14 +49,6 @@ public abstract class Widget {
 		this.estado = estado;
 	}
 
-	public ISujeto getSujeto() {
-		return sujeto;
-	}
-
-	public void setSujeto(ISujeto sujeto) {
-		this.sujeto = sujeto;
-	}
-	
 	public JPanel getVista() {
 		return vista;
 	}
