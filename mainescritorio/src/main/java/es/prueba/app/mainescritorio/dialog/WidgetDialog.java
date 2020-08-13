@@ -3,14 +3,13 @@ package es.prueba.app.mainescritorio.dialog;
 import java.awt.Rectangle;
 
 import javax.swing.JDialog;
-import javax.swing.JPanel;
 
 import es.prueba.app.mainescritorio.widget.Widget;
 
 public class WidgetDialog extends JDialog {
 
-	private final JPanel contentPanel = new JPanel();
-
+	private static final long serialVersionUID = 4144040934668800873L;
+	
 	public WidgetDialog() {
 		setBounds(100, 100, 450, 300);
 	}

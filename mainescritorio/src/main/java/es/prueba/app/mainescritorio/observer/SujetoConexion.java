@@ -8,7 +8,7 @@ import es.prueba.app.mainescritorio.interficies.ISujeto;
 
 public class SujetoConexion implements ISujeto, Runnable {
 
-	 private List<IObservador> observadores;
+	private List<IObservador> observadores;
 	
 	public SujetoConexion() 
 	{
@@ -33,7 +33,7 @@ public class SujetoConexion implements ISujeto, Runnable {
 		while(true) 
 		{			
 	     try {
-	      Thread.sleep(50000);
+	      Thread.sleep(5000);
 		  	avisaObservador();
 			} catch (InterruptedException e) {
 				e.printStackTrace();

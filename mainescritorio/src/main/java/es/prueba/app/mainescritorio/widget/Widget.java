@@ -2,18 +2,16 @@ package es.prueba.app.mainescritorio.widget;
 
 import javax.swing.JPanel;
 
-import es.prueba.app.mainescritorio.interficies.ISujeto;
-
 public abstract class Widget {
 
 	private String nombre;
 	private boolean estado;
 	private JPanel vista;
 	
-	private int altura = 0;
-	private int anchura = 0;
-	private int posicionX = 0;
-	private int posicionY = 0;
+	private int altura = 500;
+	private int anchura = 500;
+	private int posicionX = 25;
+	private int posicionY = 25;
 	
 	public Widget(String nombre, boolean estado, JPanel vista) {
 		this.nombre = nombre;

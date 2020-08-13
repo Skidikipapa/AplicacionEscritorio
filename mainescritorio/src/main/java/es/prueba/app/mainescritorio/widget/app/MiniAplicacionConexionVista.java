@@ -9,6 +9,8 @@ import java.awt.Font;
 
 public class MiniAplicacionConexionVista extends JPanel {
 	
+	private static final long serialVersionUID = 6321255112096326561L;
+	
 	private JLabel lblNumeroUsuarios;
 
 	public MiniAplicacionConexionVista() {
