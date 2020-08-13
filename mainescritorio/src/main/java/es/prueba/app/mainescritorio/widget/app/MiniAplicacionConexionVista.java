@@ -8,6 +8,7 @@ import javax.swing.SwingConstants;
 import java.awt.Font;
 
 public class MiniAplicacionConexionVista extends JPanel {
+	
 	private JLabel lblNumeroUsuarios;
 
 	public MiniAplicacionConexionVista() {

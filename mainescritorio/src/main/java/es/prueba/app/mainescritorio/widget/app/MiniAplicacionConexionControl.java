@@ -4,6 +4,7 @@ import es.prueba.app.mainescritorio.widget.Widget;
 
 public class MiniAplicacionConexionControl extends Widget {
 	
+	
 	public MiniAplicacionConexionControl(String nombre, boolean estado) {
 		super(nombre, estado);
 		this.setVista(new MiniAplicacionConexionVista());
