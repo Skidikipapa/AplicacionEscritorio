@@ -1,14 +1,19 @@
 package es.prueba.app.mainescritorio.principal;
 
 import java.awt.Dimension;
+import java.util.ArrayList;
 
+import es.prueba.app.mainescritorio.interficies.EnVentanaCerrada;
+import es.prueba.app.mainescritorio.persistencia.ArchivoManager;
 import es.prueba.app.mainescritorio.widget.Widget;
 import es.prueba.app.mainescritorio.widget.app.MiniAplicacionConexionControl;
 import es.prueba.app.mainescritorio.widget.frame.WidgetFrame;
 
-public class PrincipalFrameControl {
+public class PrincipalFrameControl implements EnVentanaCerrada {
 
-	private PrincipalFrameVista vista = new PrincipalFrameVista();
+	private PrincipalFrameVista vista = new PrincipalFrameVista(this);
+
+  private ArrayList<Widget> widgetsActivos = new ArrayList<Widget>();
 
 	public PrincipalFrameControl() {
 		this.vista.getBtnVisibilidadBarra().addActionListener(e -> visibilidadBarraLateral());
@@ -17,11 +22,24 @@ public class PrincipalFrameControl {
 	}
 
 	private void activarAplicacion(Widget app) {
-		WidgetFrame dialog = new WidgetFrame();
+    widgetsActivos.add(app);
+		WidgetFrame dialog = new WidgetFrame(this);
 		dialog.cargarAplicacion(app);
 		dialog.hacerAplicacionVisible();
 		this.vista.getPaneAplicaciones().add(dialog);
 	}
+
+  @Override
+  public void enAplicacionCerrada(Widget widget) {
+    widgetsActivos.remove(widget);
+    widget = null;
+  }
+
+  @Override
+  public void enVentanaCerrada() {
+    ArchivoManager manager = ArchivoManager.getInstance();
+    manager.escribirDatos(widgetsActivos);
+  }
 
 	private void visibilidadBarraLateral() {
 		if (this.vista.getPaneBarraLateral().getLocation().x > 0) {

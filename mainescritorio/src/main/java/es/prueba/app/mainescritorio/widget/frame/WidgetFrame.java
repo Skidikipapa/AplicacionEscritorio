@@ -5,6 +5,7 @@ import java.awt.Dimension;
 import javax.swing.JInternalFrame;
 import javax.swing.event.InternalFrameEvent;
 
+import es.prueba.app.mainescritorio.interficies.EnVentanaCerrada;
 import es.prueba.app.mainescritorio.widget.Widget;
 
 public class WidgetFrame extends JInternalFrame {
@@ -13,16 +14,16 @@ public class WidgetFrame extends JInternalFrame {
 
 	private Widget widget;
 
-	public WidgetFrame() {
+	public WidgetFrame(EnVentanaCerrada enVentanaCerrada) {
 		setClosable(true);
 		setResizable(true);
-		
+
 		this.addInternalFrameListener(new javax.swing.event.InternalFrameAdapter() {
-		      public void internalFrameClosing(InternalFrameEvent e) {
-		    	  widget.enCerrarWidget();
-		        widget = null;
-		      }
-		    });
+			public void internalFrameClosing(InternalFrameEvent e) {
+				widget.enCerrarWidget();
+				enVentanaCerrada.enAplicacionCerrada(widget);
+			}
+		});
 	}
 
 	public void cargarAplicacion(Widget widget) {
@@ -38,4 +39,4 @@ public class WidgetFrame extends JInternalFrame {
 		this.setVisible(true);
 	}
 
-	}
+}

@@ -1,6 +1,5 @@
 package es.prueba.app.mainescritorio;
 
-import java.io.IOException;
 import java.util.ArrayList;
 
 import es.prueba.app.mainescritorio.persistencia.ArchivoManager;
@@ -39,15 +38,11 @@ public class MainEscritorioTests extends TestCase {
 		
 		ArchivoManager manager = ArchivoManager.getInstance();
 		
-		try {
-			manager.escribirDatos(widgetsGuardados);
-		} catch (IOException e) {e.printStackTrace();}
+		manager.escribirDatos(widgetsGuardados);
 		
 		ArrayList<Widget> widgetsLeidos = new ArrayList<Widget>();
 		
-		try {
-			widgetsLeidos = manager.leerDatosGuardados();
-		} catch (ClassNotFoundException | IOException e) {e.printStackTrace();}
+		widgetsLeidos = manager.leerDatosGuardados();
 		
 		for (int i = 0; i < widgetsGuardados.size(); i++) 
 		{

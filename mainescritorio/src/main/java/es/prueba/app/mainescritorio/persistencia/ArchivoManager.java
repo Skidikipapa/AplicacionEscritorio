@@ -23,8 +23,9 @@ public class ArchivoManager {
 		return archivoManager;
 	}
 
-	public ArrayList<Widget> leerDatosGuardados() throws ClassNotFoundException, IOException {
-		ArrayList<Widget> widgets = new ArrayList<Widget>();
+	public ArrayList<Widget> leerDatosGuardados() {
+    try {
+      ArrayList<Widget> widgets = new ArrayList<Widget>();
 		File fdirectorio = new File(directorio);
 		File[] fwidgets = fdirectorio.listFiles();
 
@@ -35,16 +36,18 @@ public class ArchivoManager {
 			} 
 		}
 		return widgets;
+    } catch (ClassNotFoundException | IOException e) {return null;}
+
+    
 	}
 
-	public void escribirDatos(ArrayList<Widget> applicaciones) throws IOException {
-		applicaciones.forEach(widget -> {
+	public void escribirDatos(ArrayList<Widget> applicaciones) {
+      applicaciones.forEach(widget -> {
 			try (FileOutputStream fileOutputStream = new FileOutputStream(
 					directorio + "widget" + applicaciones.indexOf(widget));
 					ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);) {
 				objectOutputStream.writeObject(widget);
-			} catch (IOException e) {
-			}
+			} catch (IOException e) {}
 		});
-	}
+   }
 }
