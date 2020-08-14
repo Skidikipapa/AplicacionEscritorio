@@ -1,22 +1,21 @@
 package es.prueba.app.mainescritorio.principal;
 
 import java.awt.BorderLayout;
-import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-import javax.swing.BoxLayout;
 import javax.swing.border.LineBorder;
 import java.awt.Color;
 import java.awt.Dimension;
 import javax.swing.JButton;
 import javax.swing.SwingConstants;
 import java.awt.Cursor;
-import javax.swing.border.EtchedBorder;
 
 public class PrincipalFrameVista extends JFrame {
 
+	private static final long serialVersionUID = -8871435606857730915L;
+	
 	private JPanel panePrincipal;
 	private JButton btnVisibilidadBarra;
 	private JPanel paneBarraLateral;

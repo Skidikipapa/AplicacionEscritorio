@@ -27,9 +27,9 @@ public class MainEscritorioTests extends TestCase {
 		assertEquals("2", rest.añadeConexion());
 		assertEquals("1", rest.reduceConexion());
 		
-		Widget widget = new MiniAplicacionConexionControl(true);
-		Widget widget1 = new MiniAplicacionConexionControl(true);
-		Widget widget2 = new MiniAplicacionConexionControl(true);
+		Widget widget = new MiniAplicacionConexionControl();
+		Widget widget1 = new MiniAplicacionConexionControl();
+		Widget widget2 = new MiniAplicacionConexionControl();
 		
 		ArrayList<Widget> widgetsGuardados = new ArrayList<Widget>();
 		

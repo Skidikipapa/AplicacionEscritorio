@@ -6,6 +6,8 @@ import java.awt.Dimension;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 import java.awt.Font;
+import javax.swing.border.LineBorder;
+import java.awt.Color;
 
 public class MiniAplicacionConexionVista extends JPanel {
 	
@@ -14,7 +16,8 @@ public class MiniAplicacionConexionVista extends JPanel {
 	private JLabel lblNumeroUsuarios;
 
 	public MiniAplicacionConexionVista() {
-		setPreferredSize(new Dimension(400, 400));
+		setBorder(new LineBorder(Color.BLACK, 2));
+		setPreferredSize(new Dimension(200, 150));
 		setMaximumSize(new Dimension(400, 400));
 		setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
 		
@@ -23,14 +26,14 @@ public class MiniAplicacionConexionVista extends JPanel {
 		add(panel);
 		panel.setLayout(null);
 		
-		JLabel lblUsuariosConectados = new JLabel("Usuarios conectados:");
-		lblUsuariosConectados.setBounds(129, 82, 160, 58);
+		JLabel lblUsuariosConectados = new JLabel("Usuarios conectados");
+		lblUsuariosConectados.setBounds(40, 12, 126, 58);
 		panel.add(lblUsuariosConectados);
 		
 		lblNumeroUsuarios = new JLabel("0");
 		lblNumeroUsuarios.setFont(new Font("Dialog", Font.BOLD, 24));
 		lblNumeroUsuarios.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNumeroUsuarios.setBounds(148, 176, 99, 104);
+		lblNumeroUsuarios.setBounds(40, 54, 99, 80);
 		panel.add(lblNumeroUsuarios);
 
 	}

@@ -2,8 +2,9 @@ package es.prueba.app.mainescritorio.principal;
 
 import java.awt.Dimension;
 
-import es.prueba.app.mainescritorio.dialog.WidgetDialog;
+import es.prueba.app.mainescritorio.widget.Widget;
 import es.prueba.app.mainescritorio.widget.app.MiniAplicacionConexionControl;
+import es.prueba.app.mainescritorio.widget.frame.WidgetFrame;
 
 public class PrincipalFrameControl {
 
@@ -11,15 +12,15 @@ public class PrincipalFrameControl {
 
 	public PrincipalFrameControl() {
 		this.vista.getBtnVisibilidadBarra().addActionListener(e -> visibilidadBarraLateral());
-		this.vista.getBtnMiniAplicacion().addActionListener(e -> activarAplicacion());
+		
+		this.vista.getBtnMiniAplicacion().addActionListener(e -> activarAplicacion(new MiniAplicacionConexionControl()));
 	}
 
-	private void activarAplicacion() {
-		MiniAplicacionConexionControl app = new MiniAplicacionConexionControl(true, 200, 200, 150, 150);
-		WidgetDialog dialog = new WidgetDialog();
+	private void activarAplicacion(Widget app) {
+		WidgetFrame dialog = new WidgetFrame();
 		dialog.cargarAplicacion(app);
-		dialog.setLocationRelativeTo(this.vista);
 		dialog.hacerAplicacionVisible();
+		this.vista.getPaneAplicaciones().add(dialog);
 	}
 
 	private void visibilidadBarraLateral() {

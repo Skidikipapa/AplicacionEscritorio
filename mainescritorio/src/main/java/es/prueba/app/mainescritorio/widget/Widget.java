@@ -6,42 +6,31 @@ import javax.swing.JPanel;
 
 public abstract class Widget implements Serializable{
 
+	private static final long serialVersionUID = 6602831908441105635L;
+	
 	private String nombre;
-	private boolean estado;
 	private JPanel vista;
 	
-	private int altura = 500;
-	private int anchura = 500;
-	private int posicionX = 25;
-	private int posicionY = 25;
-	
-	public Widget(String nombre, boolean estado, int altura, int anchura, int posicionX, int posicionY) {
-		this.nombre = nombre;
-		this.estado = estado;
-		this.posicionX = posicionX;
-		this.posicionY = posicionY;
-		this.altura = altura;
-		this.anchura = anchura;
-	}
+	protected int altura;
+	protected int anchura;
+	protected int posicionX;
+	protected int posicionY;
 	
 	public Widget(String nombre, int altura, int anchura, int posicionX, int posicionY) {
 		this.nombre = nombre;
-		this.estado = false;
 		this.posicionX = posicionX;
 		this.posicionY = posicionY;
 		this.altura = altura;
 		this.anchura = anchura;
-	}
-	
-	public Widget(String nombre, boolean estado) {
-		this.nombre = nombre;
-		this.estado = estado;
 	}
 	
 	public Widget(String nombre) {
 		this.nombre = nombre;
-		this.estado = false;
-	}
+	}	
+	
+	public Widget() {}
+
+  public abstract void enCerrarWidget();
 	
 	public String getNombre() {
 		return nombre;
@@ -49,14 +38,6 @@ public abstract class Widget implements Serializable{
 
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
-	}
-
-	public boolean isEstado() {
-		return estado;
-	}
-
-	public void setEstado(boolean estado) {
-		this.estado = estado;
 	}
 
 	public JPanel getVista() {

@@ -1,6 +1,7 @@
 package es.prueba.app.mainescritorio.observer;
 
 import es.prueba.app.mainescritorio.interficies.IObservador;
+import es.prueba.app.mainescritorio.rest.ClienteRest;
 import es.prueba.app.mainescritorio.widget.app.MiniAplicacionConexionControl;
 
 public class ObservadorConexion implements IObservador{
@@ -12,14 +13,7 @@ public class ObservadorConexion implements IObservador{
     }
     
     public void actualiza() {
-
-        /**
-         * Llamada a la instancia ClienteRest
-         * Comprovamos numero de conexiones
-         * Añadimos numero al panel
-         */
-
-      this.widget.setNumeroConexion("");
-
+      ClienteRest rest = ClienteRest.getInstancia();
+      this.widget.setNumeroConexion(rest.consultaConexion());
     }   
 }

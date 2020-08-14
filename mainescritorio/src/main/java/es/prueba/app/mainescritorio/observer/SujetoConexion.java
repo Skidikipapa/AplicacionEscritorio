@@ -20,7 +20,7 @@ public class SujetoConexion implements ISujeto, Runnable {
 		this.observadores.add(observador);
 	}
 	
-	public void borrarObserver(IObservador observador) 
+	public void borrarObservador(IObservador observador) 
 	{
 		this.observadores.remove(observador);
 	}
