@@ -21,6 +21,7 @@ public class PrincipalFrameVista extends JFrame {
 	private JButton btnVisibilidadBarra;
 	private JPanel paneBarraLateral;
 	private JPanel paneAplicaciones;
+	private JButton btnMiniAplicacion;
 
 	public PrincipalFrameVista() {
 		setMinimumSize(new Dimension(1000, 600));
@@ -51,9 +52,9 @@ public class PrincipalFrameVista extends JFrame {
 		paneBarraLateral.add(panelIconoWidgets, BorderLayout.CENTER);
 		panelIconoWidgets.setLayout(null);
 		
-		JButton btnNewButton = new JButton("New button");
-		btnNewButton.setBounds(30, 28, 96, 74);
-		panelIconoWidgets.add(btnNewButton);
+		btnMiniAplicacion = new JButton("");
+		btnMiniAplicacion.setBounds(30, 28, 96, 74);
+		panelIconoWidgets.add(btnMiniAplicacion);
 		
 		JPanel panelBoton = new JPanel();
 		panelBoton.setPreferredSize(new Dimension(40, 800));
@@ -86,5 +87,8 @@ public class PrincipalFrameVista extends JFrame {
 	}
 	public JPanel getPaneAplicaciones() {
 		return paneAplicaciones;
+	}
+	public JButton getBtnMiniAplicacion() {
+		return btnMiniAplicacion;
 	}
 }

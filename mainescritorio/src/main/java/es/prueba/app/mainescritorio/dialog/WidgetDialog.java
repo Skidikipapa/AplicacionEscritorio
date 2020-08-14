@@ -19,4 +19,8 @@ public class WidgetDialog extends JDialog {
 		setBounds(new Rectangle(widget.getPosicionX(),widget.getPosicionY(), widget.getAnchura(), widget.getAltura()));
 		getContentPane().add(widget.getVista());
 	}
+
+  public void hacerAplicacionVisible() {
+    this.setVisible(true);
+  }
 }
