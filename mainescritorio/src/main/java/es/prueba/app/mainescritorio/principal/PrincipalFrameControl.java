@@ -28,12 +28,14 @@ public class PrincipalFrameControl implements EnVentanaCerrada {
     ArchivoManager manager = ArchivoManager.getInstance();
     ArrayList<Widget> widgetsGuardados = manager.leerDatosGuardados();
     widgetsGuardados.forEach(widget -> activarAplicacion(widget));
-    widgetsGuardados = null;
+    widgetsGuardados = null; 
   }
 
 	private void activarAplicacion(Widget app) {
     widgetsActivos.add(app);
 		WidgetFrame dialog = new WidgetFrame(this);
+    app.cargarDimensiones();
+    app.cargarLocalizacion();
 		dialog.cargarAplicacion(app);
 		dialog.hacerAplicacionVisible();
 		this.vista.getPaneAplicaciones().add(dialog);

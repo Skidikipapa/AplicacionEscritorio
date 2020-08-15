@@ -1,5 +1,6 @@
 package es.prueba.app.mainescritorio.widget;
 
+import java.awt.Dimension;
 import java.io.Serializable;
 
 import javax.swing.JPanel;
@@ -79,6 +80,14 @@ public abstract class Widget implements Serializable{
 	public void setVista(JPanel vista) {
 		this.vista = vista;
 	}
+
+  public void cargarDimensiones() {
+    this.getVista().setPreferredSize(new Dimension(this.anchura,this.altura));
+  }
+
+  public void cargarLocalizacion() {
+    this.getVista().setLocation(this.posicionX, this.posicionY);
+  }
 
 	@Override
 	public String toString() {

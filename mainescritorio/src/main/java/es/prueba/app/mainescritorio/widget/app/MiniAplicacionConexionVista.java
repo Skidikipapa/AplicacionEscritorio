@@ -18,7 +18,7 @@ public class MiniAplicacionConexionVista extends JPanel {
 	public MiniAplicacionConexionVista() {
 		setBorder(new LineBorder(Color.BLACK, 2));
 		setPreferredSize(new Dimension(200, 150));
-		setMaximumSize(new Dimension(400, 400));
+		setMaximumSize(new Dimension(800, 800));
 		setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
 		
 		JPanel panel = new JPanel();
