@@ -43,8 +43,6 @@ public class ArchivoManager {
 
 	public void escribirDatos(ArrayList<Widget> applicaciones) {
       applicaciones.forEach(widget -> {
-     //   if (widget.getAltura() == 0) widget.setAltura(150);
-     //   if (widget.getAnchura() == 0) widget.setAnchura(200);
 			try (FileOutputStream fileOutputStream = new FileOutputStream(
 					directorio + "widget" + applicaciones.indexOf(widget));
 					ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);) {

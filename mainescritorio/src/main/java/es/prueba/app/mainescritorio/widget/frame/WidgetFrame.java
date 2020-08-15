@@ -33,8 +33,7 @@ public class WidgetFrame extends JInternalFrame implements ComponentListener{
 	public void cargarAplicacion(Widget widget) {
 		this.widget = widget;
 		setTitle(this.widget.getNombre());
-    setSize(new Dimension(this.widget.getAnchura(), this.widget.getAltura()));
-		setLocation(this.widget.getPosicionX(), this.widget.getPosicionY());
+    reshape(this.widget.getPosicionX(), this.widget.getPosicionY(), this.widget.getAnchura(), this.widget.getAltura());
 		getContentPane().add(this.widget.getVista());
     pack();
 	}
@@ -48,8 +47,8 @@ public class WidgetFrame extends JInternalFrame implements ComponentListener{
 
 	@Override
 	public void componentMoved(ComponentEvent arg0) {
-	  this.widget.setPosicionX(this.widget.getVista().getLocation().x);
-    this.widget.setPosicionY(this.widget.getVista().getLocation().y);
+	  this.widget.setPosicionX(this.getLocation().x);
+    this.widget.setPosicionY(this.getLocation().y);
   }
 
 	@Override
