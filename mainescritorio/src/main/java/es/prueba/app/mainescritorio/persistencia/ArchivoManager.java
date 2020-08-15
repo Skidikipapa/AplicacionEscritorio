@@ -25,18 +25,19 @@ public class ArchivoManager {
 
 	public ArrayList<Widget> leerDatosGuardados() {
     try {
-      ArrayList<Widget> widgets = new ArrayList<Widget>();
+    ArrayList<Widget> widgets = new ArrayList<Widget>();
 		File fdirectorio = new File(directorio);
 		File[] fwidgets = fdirectorio.listFiles();
-
 		for (File fwidget : fwidgets) {
 			try (FileInputStream fileInputStream = new FileInputStream(fwidget);
 					ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);) {
-				widgets.add((Widget) objectInputStream.readObject());
+				  widgets.add((Widget) objectInputStream.readObject());
+          fwidget.delete();
 			} 
 		}
+  
 		return widgets;
-    } catch (ClassNotFoundException | IOException e) {return null;}
+    } catch (ClassNotFoundException | IOException e) { e.printStackTrace(); return null;}
 
     
 	}

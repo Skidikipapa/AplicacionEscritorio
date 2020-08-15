@@ -1,6 +1,8 @@
 package es.prueba.app.mainescritorio.interficies;
 
-public interface IObservador {
+import java.io.Serializable;
+
+public interface IObservador extends Serializable {
 
   public void actualiza();
 }

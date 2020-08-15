@@ -1,6 +1,8 @@
 package es.prueba.app.mainescritorio.interficies;
 
-public interface ISujeto {
+import java.io.Serializable;
+
+public interface ISujeto extends Serializable {
 
   public void avisaObservador();
   public void añadirObservador(IObservador observador);

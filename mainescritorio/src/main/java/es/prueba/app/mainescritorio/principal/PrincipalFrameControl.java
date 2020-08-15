@@ -16,10 +16,20 @@ public class PrincipalFrameControl implements EnVentanaCerrada {
   private ArrayList<Widget> widgetsActivos = new ArrayList<Widget>();
 
 	public PrincipalFrameControl() {
+
+    cargarWidgets();
+
 		this.vista.getBtnVisibilidadBarra().addActionListener(e -> visibilidadBarraLateral());
 		
 		this.vista.getBtnMiniAplicacion().addActionListener(e -> activarAplicacion(new MiniAplicacionConexionControl()));
 	}
+
+  private void cargarWidgets() {
+    ArchivoManager manager = ArchivoManager.getInstance();
+    ArrayList<Widget> widgetsGuardados = manager.leerDatosGuardados();
+    widgetsGuardados.forEach(widget -> activarAplicacion(widget));
+    widgetsGuardados = null;
+  }
 
 	private void activarAplicacion(Widget app) {
     widgetsActivos.add(app);
