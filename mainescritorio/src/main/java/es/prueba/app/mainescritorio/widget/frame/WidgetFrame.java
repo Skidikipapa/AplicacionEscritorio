@@ -54,8 +54,11 @@ public class WidgetFrame extends JInternalFrame implements ComponentListener{
 
 	@Override
 	public void componentResized(ComponentEvent arg0) {
-  	this.widget.setAnchura(this.widget.getVista().getWidth());
-    this.widget.setAltura(this.widget.getVista().getHeight());
+    if (this.widget.getVista().getWidth() > 0 && this.widget.getVista().getHeight() > 0) 
+    {
+      this.widget.setAnchura(this.widget.getVista().getWidth());
+      this.widget.setAltura(this.widget.getVista().getHeight());
+    }
   }
 
 	@Override
