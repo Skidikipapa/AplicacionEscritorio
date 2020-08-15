@@ -17,8 +17,8 @@ public class MiniAplicacionConexionControl extends Widget {
 		this.setVista(new MiniAplicacionConexionVista());
 		this.altura = (int) this.getVista().getPreferredSize().getHeight();
 		this.anchura = (int) this.getVista().getPreferredSize().getWidth();
-		this.posicionX = this.getVista().getLocation().x;
-		this.posicionY = this.getVista().getLocation().y;
+    this.posicionX = (int) (Math.random() * 500) + 0;
+		this.posicionY = (int) (Math.random() * 500) + 0;
     inicializaConexiones();
 	}
 	

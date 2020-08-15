@@ -56,7 +56,7 @@ public class PrincipalFrameVista extends JFrame {
 		paneBarraLateral.add(panelIconoWidgets, BorderLayout.CENTER);
 		panelIconoWidgets.setLayout(null);
 
-		btnMiniAplicacion = new JButton("");
+		btnMiniAplicacion = new JButton("App 1");
 		btnMiniAplicacion.setBounds(30, 28, 96, 74);
 		panelIconoWidgets.add(btnMiniAplicacion);
 

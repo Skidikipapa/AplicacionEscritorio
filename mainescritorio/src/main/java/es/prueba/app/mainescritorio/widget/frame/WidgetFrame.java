@@ -1,6 +1,5 @@
 package es.prueba.app.mainescritorio.widget.frame;
 
-import java.awt.Dimension;
 import java.awt.event.ComponentEvent;
 import java.awt.event.ComponentListener;
 
