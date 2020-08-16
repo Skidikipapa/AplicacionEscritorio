@@ -33,8 +33,8 @@ public class SujetoConexion implements ISujeto, Runnable {
 		while(true) 
 		{			
 	     try {
+        avisaObservador();
 	      Thread.sleep(5000);
-		  	avisaObservador();
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}

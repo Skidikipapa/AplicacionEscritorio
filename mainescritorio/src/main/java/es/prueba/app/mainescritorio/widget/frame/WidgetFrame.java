@@ -21,7 +21,6 @@ public class WidgetFrame extends JInternalFrame implements ComponentListener{
 
 		this.addInternalFrameListener(new javax.swing.event.InternalFrameAdapter() {
 			public void internalFrameClosing(InternalFrameEvent e) {
-				widget.enCerrarWidget();
 				enVentanaCerrada.enAplicacionCerrada(widget);
 			}
 		});

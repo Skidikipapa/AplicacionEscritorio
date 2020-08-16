@@ -31,6 +31,7 @@ public abstract class Widget implements Serializable{
 	
 	public Widget() {}
 
+  public abstract void enAbrirWidget();
   public abstract void enCerrarWidget();
 	
 	public String getNombre() {

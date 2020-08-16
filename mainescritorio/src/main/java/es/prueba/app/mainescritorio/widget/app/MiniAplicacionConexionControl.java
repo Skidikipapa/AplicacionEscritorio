@@ -19,22 +19,20 @@ public class MiniAplicacionConexionControl extends Widget {
 		this.anchura = (int) this.getVista().getPreferredSize().getWidth();
     this.posicionX = (int) (Math.random() * 500) + 0;
 		this.posicionY = (int) (Math.random() * 500) + 0;
-    inicializaConexiones();
-	}
+  }
 	
 	public MiniAplicacionConexionControl(int altura, int anchura, int posicionX, int posicionY) {
 		super("MiniAplicacionConexion", altura, anchura, posicionX, posicionY);
 		this.setVista(new MiniAplicacionConexionVista());
 		this.getVista().setSize(anchura, altura);
 		this.getVista().setLocation(posicionX, posicionY);
-    inicializaConexiones();
-	}
+  }
 	
 	public void setNumeroConexion(String numero) {
 		((MiniAplicacionConexionVista) this.getVista()).getLblNumeroUsuarios().setText(numero);
 	}
 
-  private void inicializaConexiones() {
+  public void enAbrirWidget() {
     ClienteRest rest = ClienteRest.getInstancia();
     setNumeroConexion(rest.añadeConexion());
     this.sujeto = new SujetoConexion();

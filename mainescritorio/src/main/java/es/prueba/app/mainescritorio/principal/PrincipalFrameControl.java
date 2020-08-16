@@ -32,24 +32,31 @@ public class PrincipalFrameControl implements EnVentanaCerrada {
   }
 
 	private void activarAplicacion(Widget app) {
-    widgetsActivos.add(app);
 		WidgetFrame dialog = new WidgetFrame(this);
-    app.cargarDimensiones();
-    app.cargarLocalizacion();
+    preparaWidget(app);
 		dialog.cargarAplicacion(app);
 		dialog.hacerAplicacionVisible();
 		this.vista.getPaneAplicaciones().add(dialog);
 	}
 
+  private void preparaWidget(Widget app) {
+    widgetsActivos.add(app);
+    app.cargarDimensiones();
+    app.cargarLocalizacion();
+    app.enAbrirWidget();
+  }
+
   @Override
   public void enAplicacionCerrada(Widget widget) {
     widgetsActivos.remove(widget);
+    widget.enCerrarWidget();
     widget = null;
   }
 
   @Override
   public void enVentanaCerrada() {
     ArchivoManager manager = ArchivoManager.getInstance();
+    widgetsActivos.forEach(widget -> widget.enCerrarWidget());
     manager.escribirDatos(widgetsActivos);
   }
 
