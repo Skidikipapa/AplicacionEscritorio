@@ -27,13 +27,14 @@ public class MiniAplicacionConexionVista extends JPanel {
 		panel.setLayout(null);
 		
 		JLabel lblUsuariosConectados = new JLabel("Usuarios conectados");
-		lblUsuariosConectados.setBounds(40, 12, 126, 58);
+		lblUsuariosConectados.setHorizontalAlignment(SwingConstants.CENTER);
+		lblUsuariosConectados.setBounds(22, 12, 146, 58);
 		panel.add(lblUsuariosConectados);
 		
 		lblNumeroUsuarios = new JLabel("0");
-		lblNumeroUsuarios.setFont(new Font("Dialog", Font.BOLD, 24));
+		lblNumeroUsuarios.setFont(new Font("Dialog", Font.BOLD, 22));
 		lblNumeroUsuarios.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNumeroUsuarios.setBounds(40, 54, 99, 80);
+		lblNumeroUsuarios.setBounds(12, 54, 173, 80);
 		panel.add(lblNumeroUsuarios);
 
 	}

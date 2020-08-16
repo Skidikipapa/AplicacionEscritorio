@@ -38,7 +38,7 @@ public class ClienteRest {
 				return resultado.toString();
 			}
 		} catch (IOException e) {
-			return "-1";
+			return "Error 404";
 		}
 	}
 
@@ -72,9 +72,9 @@ public class ClienteRest {
 					return response.toString();
 				}
 			}
-			else return "0";
+			else return "Error 404";
 		} catch (IOException e) {
-			return "0";
+			return "Error 404";
 		}
 	}
 }
