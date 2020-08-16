@@ -11,48 +11,50 @@ import java.util.ArrayList;
 import es.prueba.app.mainescritorio.widget.Widget;
 
 public class ArchivoManager {
-  
-  private static ArchivoManager archivoManager = null;
 
-	private String directorio;
+	private static ArchivoManager archivoManager = null;
 
-  private ArchivoManager() {
-    this.directorio = "widgets/";
-  }
+	private File directorio;
+
+	private ArchivoManager() {
+		this.directorio = new File("widgets/");
+		if (!directorio.exists()) directorio.mkdir();
+	}
 
 	public static ArchivoManager getInstance() {
 		if (archivoManager == null)
-      archivoManager = new ArchivoManager();
-    return archivoManager;
+			archivoManager = new ArchivoManager();
+		return archivoManager;
 	}
 
 	public ArrayList<Widget> leerDatosGuardados() {
-    ArrayList<Widget> widgets = new ArrayList<Widget>();
-    File fdirectorio = new File(directorio);
-		File[] fwidgets = fdirectorio.listFiles();
-    try 
-    {
-		  for (File fwidget : fwidgets) 
-      {
-			    try (FileInputStream fileInputStream = new FileInputStream(fwidget);
-					  ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);) 
-          {
-				    widgets.add((Widget) objectInputStream.readObject());
-            fwidget.delete();
-			} 
+		ArrayList<Widget> widgets = new ArrayList<Widget>();
+		File[] fwidgets = this.directorio.listFiles();
+		if (fwidgets != null) {
+			try {
+				for (File fwidget : fwidgets) {
+					try (FileInputStream fileInputStream = new FileInputStream(fwidget);
+							ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);) {
+						widgets.add((Widget) objectInputStream.readObject());
+						fwidget.delete();
+					}
+				}
+			} catch (ClassNotFoundException | IOException e) {
+				e.printStackTrace();
+			}
 		}
-    } catch (ClassNotFoundException | IOException e) {e.printStackTrace();}
-    return widgets;
+		return widgets;
 	}
 
 	public void escribirDatos(ArrayList<Widget> applicaciones) {
-      applicaciones.forEach(widget -> {
-			try (FileOutputStream fileOutputStream = new FileOutputStream(
-					              directorio + "widget" + applicaciones.indexOf(widget));
-					              ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);) 
-      {
+		applicaciones.forEach(widget -> {
+			File widgetFile = new File(directorio.getName() + "/widget" + applicaciones.indexOf(widget));
+			try (FileOutputStream fileOutputStream = new FileOutputStream(widgetFile);
+					ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);) {
 				objectOutputStream.writeObject(widget);
-			} catch (IOException e) {e.printStackTrace();}
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 		});
-   }
+	}
 }

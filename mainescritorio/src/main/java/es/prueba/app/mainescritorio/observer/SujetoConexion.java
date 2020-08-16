@@ -8,6 +8,8 @@ import es.prueba.app.mainescritorio.interficies.ISujeto;
 
 public class SujetoConexion implements ISujeto, Runnable {
 
+	private static final long serialVersionUID = -7415937936321134560L;
+	
 	private List<IObservador> observadores;
 	
 	public SujetoConexion() 
