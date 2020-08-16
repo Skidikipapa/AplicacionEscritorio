@@ -9,13 +9,13 @@ public abstract class Widget implements Serializable{
 
 	private static final long serialVersionUID = 6602831908441105635L;
 	
-	private String nombre;
-	private JPanel vista;
-	
-	protected int altura;
+  protected int altura;
 	protected int anchura;
 	protected int posicionX;
 	protected int posicionY;
+
+	private String nombre;
+	private JPanel vista;
 	
 	public Widget(String nombre, int altura, int anchura, int posicionX, int posicionY) {
 		this.nombre = nombre;

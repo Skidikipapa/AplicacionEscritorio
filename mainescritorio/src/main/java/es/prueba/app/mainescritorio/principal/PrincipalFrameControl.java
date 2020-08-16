@@ -3,13 +3,13 @@ package es.prueba.app.mainescritorio.principal;
 import java.awt.Dimension;
 import java.util.ArrayList;
 
-import es.prueba.app.mainescritorio.interficies.EnVentanaCerrada;
+import es.prueba.app.mainescritorio.interficies.IEnVentanaCerrada;
 import es.prueba.app.mainescritorio.persistencia.ArchivoManager;
 import es.prueba.app.mainescritorio.widget.Widget;
 import es.prueba.app.mainescritorio.widget.app.MiniAplicacionConexionControl;
 import es.prueba.app.mainescritorio.widget.frame.WidgetFrame;
 
-public class PrincipalFrameControl implements EnVentanaCerrada {
+public class PrincipalFrameControl implements IEnVentanaCerrada {
 
 	private PrincipalFrameVista vista = new PrincipalFrameVista(this);
 

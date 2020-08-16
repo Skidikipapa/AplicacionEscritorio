@@ -6,7 +6,7 @@ import java.awt.event.ComponentListener;
 import javax.swing.JInternalFrame;
 import javax.swing.event.InternalFrameEvent;
 
-import es.prueba.app.mainescritorio.interficies.EnVentanaCerrada;
+import es.prueba.app.mainescritorio.interficies.IEnVentanaCerrada;
 import es.prueba.app.mainescritorio.widget.Widget;
 
 public class WidgetFrame extends JInternalFrame implements ComponentListener{
@@ -15,7 +15,7 @@ public class WidgetFrame extends JInternalFrame implements ComponentListener{
 
 	private Widget widget;
 
-	public WidgetFrame(EnVentanaCerrada enVentanaCerrada) {
+	public WidgetFrame(IEnVentanaCerrada enVentanaCerrada) {
 		setClosable(true);
 		setResizable(true);
 

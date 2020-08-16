@@ -14,7 +14,7 @@ import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 
-import es.prueba.app.mainescritorio.interficies.EnVentanaCerrada;
+import es.prueba.app.mainescritorio.interficies.IEnVentanaCerrada;
 
 public class PrincipalFrameVista extends JFrame {
 
@@ -26,7 +26,7 @@ public class PrincipalFrameVista extends JFrame {
 	private JPanel paneAplicaciones;
 	private JButton btnMiniAplicacion;
 
-	public PrincipalFrameVista(EnVentanaCerrada enVentanaCerrada) {
+	public PrincipalFrameVista(IEnVentanaCerrada enVentanaCerrada) {
 
 		setMinimumSize(new Dimension(1000, 600));
 		setMaximumSize(new Dimension(1000, 600));
@@ -57,6 +57,7 @@ public class PrincipalFrameVista extends JFrame {
 		panelIconoWidgets.setLayout(null);
 
 		btnMiniAplicacion = new JButton("App 1");
+		btnMiniAplicacion.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnMiniAplicacion.setBounds(30, 28, 96, 74);
 		panelIconoWidgets.add(btnMiniAplicacion);
 
